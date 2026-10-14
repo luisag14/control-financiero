@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes - Control Financiero</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="app">
+        <header class="app-header">
+            <div>
+                <h1>Control Financiero</h1>
+                <p>Analiza en que categorias se concentra tu gasto.</p>
+                <nav class="menu-principal" aria-label="Menu principal">
+                    <a href="index.html">Inicio</a>
+                    <a href="reportes.html" class="activo">Reportes</a>
+                </nav>
+            </div>
+        </header>
+
+        <section class="resumen">
+            <article class="resumen-card ingreso">
+                <span>Ingresos del periodo</span>
+                <strong id="totalIngresos">$0</strong>
+            </article>
+
+            <article class="resumen-card gasto">
+                <span>Gastos del periodo</span>
+                <strong id="totalGastos">$0</strong>
+            </article>
+
+            <article class="resumen-card balance">
+                <span>Balance del periodo</span>
+                <strong id="balance">$0</strong>
+            </article>
+        </section>
+
+        <section class="filtros">
+            <div>
+                <h2 id="tituloPeriodo">Resumen del mes</h2>
+                <p id="detallePeriodo">Movimientos del periodo seleccionado.</p>
+            </div>
+
+            <div class="filtros-controles">
+                <label for="filtroMes">Mes</label>
+                <input type="month" id="filtroMes">
+
+                <label for="fechaInicio">Desde</label>
+                <input type="date" id="fechaInicio">
+
+                <label for="fechaFin">Hasta</label>
+                <input type="date" id="fechaFin">
+
+                <button type="button" id="btnBuscar">Buscar</button>
+                <button type="button" id="btnMesActual" class="btn-secundario">Mes actual</button>
+            </div>
+        </section>
+
+        <section class="reporte">
+            <div class="reporte-encabezado">
+                <div>
+                    <h2>Reporte de gastos</h2>
+                    <p id="detalleReporte">Clasificacion de gastos del periodo seleccionado.</p>
+                </div>
+
+                <article class="categoria-principal">
+                    <span>Mayor gasto</span>
+                    <strong id="categoriaMayorGasto">Sin gastos</strong>
+                    <small id="montoMayorGasto">$0</small>
+                </article>
+            </div>
+
+            <div class="acciones-reporte">
+                <button type="button" id="btnExportarPdf">Exportar PDF</button>
+                <button type="button" id="btnExportarCsv">Exportar CSV</button>
+            </div>
+
+            <div id="reporteCategorias" class="reporte-categorias"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

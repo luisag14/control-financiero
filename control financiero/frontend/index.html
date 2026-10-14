@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Financiero</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="app">
+        <header class="app-header">
+            <div>
+                <h1>Control Financiero</h1>
+                <p>Registra ingresos y gastos para ver tu balance.</p>
+                <nav class="menu-principal" aria-label="Menu principal">
+                    <a href="index.html" class="activo">Inicio</a>
+                    <a href="reportes.html">Reportes</a>
+                </nav>
+            </div>
+        </header>
+
+        <section class="resumen">
+            <article class="resumen-card ingreso">
+                <span>Ingresos del periodo</span>
+                <strong id="totalIngresos">$0</strong>
+            </article>
+
+            <article class="resumen-card gasto">
+                <span>Gastos del periodo</span>
+                <strong id="totalGastos">$0</strong>
+            </article>
+
+            <article class="resumen-card balance">
+                <span>Balance del periodo</span>
+                <strong id="balance">$0</strong>
+            </article>
+        </section>
+
+        <section class="filtros">
+            <div>
+                <h2 id="tituloPeriodo">Resumen del mes</h2>
+                <p id="detallePeriodo">Movimientos del periodo seleccionado.</p>
+            </div>
+
+            <div class="filtros-controles">
+                <label for="filtroMes">Mes</label>
+                <input type="month" id="filtroMes">
+
+                <label for="fechaInicio">Desde</label>
+                <input type="date" id="fechaInicio">
+
+                <label for="fechaFin">Hasta</label>
+                <input type="date" id="fechaFin">
+
+                <button type="button" id="btnBuscar">Buscar</button>
+                <button type="button" id="btnMesActual" class="btn-secundario">Mes actual</button>
+            </div>
+        </section>
+
+        <section class="contenido">
+            <form id="formMovimiento" class="formulario">
+                <h2 id="tituloFormulario">Nuevo movimiento</h2>
+
+                <label for="tipo">Tipo</label>
+                <select id="tipo" required>
+                    <option value="ingreso">Ingreso</option>
+                    <option value="gasto">Gasto</option>
+                </select>
+
+                <label for="descripcion">Descripcion</label>
+                <input type="text" id="descripcion" placeholder="Ej: Pago de salario" required>
+
+                <label for="categoria">Categoria</label>
+                <select id="categoria" required>
+                    <option value="">Selecciona una categoria</option>
+                    <option value="alimentacion">Alimentacion</option>
+                    <option value="transporte">Transporte</option>
+                    <option value="servicios">Servicios</option>
+                    <option value="salud">Salud</option>
+                    <option value="educacion">Educacion</option>
+                    <option value="entretenimiento">Entretenimiento</option>
+                    <option value="salario">Salario</option>
+                    <option value="otros">Otros</option>
+                </select>
+
+                <label for="monto">Monto</label>
+                <input type="number" id="monto" min="1" step="0.01" placeholder="Ej: 50000" required>
+
+                <label for="fecha">Fecha</label>
+                <input type="date" id="fecha" required>
+
+                <button type="submit" id="btnGuardar">Guardar movimiento</button>
+                <button type="button" id="btnCancelarEdicion" class="btn-secundario oculto">Cancelar edicion</button>
+            </form>
+
+            <section class="movimientos">
+                <h2>Movimientos</h2>
+                <div id="listaMovimientos" class="lista"></div>
+            </section>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
